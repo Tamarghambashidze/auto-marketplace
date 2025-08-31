@@ -1,0 +1,206 @@
+/* General Section Grid Layout */
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive grid with auto-fill */
+    gap: 30px; /* Space between items */
+    padding: 50px;
+    justify-content: center;
+    background: linear-gradient(to right, #ece9e6, #ffffff); /* Soft gradient background */
+}
+
+/* Car Card Styling with Glassmorphism */
+.car-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+    padding: 25px;
+    max-width: 380px;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+/* Hover Effect - Lift & Glow */
+.car-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Image Container */
+.car-image-container {
+    position: relative;
+    width: 100%;
+    min-width: 300px;
+    height: 250px; /* Set height for better image consistency */
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Front Image */
+.car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: opacity 0.4s ease-in-out;
+    border-radius: 15px;
+}
+
+/* Back Image (Initially Hidden) */
+.car-image.back {
+    opacity: 0;
+}
+
+/* Show second image on hover */
+.car-card:hover .car-image.front {
+    opacity: 0;
+}
+
+.car-card:hover .car-image.back {
+    opacity: 1;
+}
+
+/* Hover Effect for Image - Smooth Zoom */
+.car-image {
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+/* Hover effect on card hover */
+.car-card:hover .car-image {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+/* Title Styling */
+h3 {
+    font-size: 2.2rem; /* Increased font size */
+    font-family: 'Montserrat', sans-serif; /* Using Montserrat for headings */
+    color: #222;
+    margin: 15px 0;
+    font-weight: 600; /* Semi-bold for better visibility */
+    letter-spacing: 1px; /* Slight letter-spacing for a clean look */
+    text-transform: capitalize; /* Making it more readable */
+}
+
+/* Car Details Styling */
+p {
+    font-size: 1.2rem; /* Larger font size for better readability */
+    font-family: 'Montserrat', sans-serif; /* Consistent font for body */
+    color: #444;
+    margin: 8px 0;
+    line-height: 1.7; /* Increased line height for clarity */
+}
+
+/* Price Styling - Highlighted */
+.car-price {
+    font-weight: bold;
+    font-size: 1.5rem; /* Slightly larger price for emphasis */
+    font-family: 'Montserrat', sans-serif;
+    color: #e63946;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.car-card button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #ff4757;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1.2rem; /* Increased button font size */
+}
+
+/* Button Hover Effect */
+.car-card button:hover {
+    background: #e63946;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Single column layout for small screens */
+    }
+
+    .car-card {
+        max-width: 320px; /* Adjust max-width for mobile */
+    }
+
+    h3 {
+        font-size: 1.8rem; /* Reduced heading size on mobile */
+    }
+
+    p {
+        font-size: 1.1rem; /* Adjusted text size */
+    }
+
+    .car-price {
+        font-size: 1.4rem; /* Adjusted price size for mobile */
+    }
+
+    .car-card button {
+        font-size: 1.1rem; /* Adjust button font size for mobile */
+    }
+}
+
+/* Style for the dropdown to select number of cars per page */
+#carsPerPage {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    transition: border-color 0.3s ease;
+}
+
+#carsPerPage:focus {
+    border-color: #b40b08;
+    outline: none;
+}
+
+/* Style for pagination controls */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #b40b08;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s ease;
+    margin: 0 5px;
+}
+
+button:hover {
+    background-color: #9a0a06;
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(180, 11, 8, 0.7);
+}

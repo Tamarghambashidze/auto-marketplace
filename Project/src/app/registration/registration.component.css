@@ -1,0 +1,111 @@
+.signup {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+label {
+    color: #fff;
+    font-size: 2.5em;
+    justify-content: center;
+    display: flex;
+    margin: 20px 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    text-transform: uppercase;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input, select {
+    width: 90%;
+    background: #e0dede;
+    margin: 15px auto;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    border-color: #573b8a;
+    box-shadow: 0 0 5px rgba(87, 59, 138, 0.5);
+}
+
+button {
+    width: 100%;
+    max-width: 350px;
+    height: 45px;
+    margin: 20px auto;
+    background: #573b8a;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    outline: none;
+}
+
+button:hover {
+    background: #6d44b8;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.login-link {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.login-link a {
+    color: #573b8a;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .signup {
+        padding: 15px;
+    }
+
+    input, button {
+        width: 80%;
+    }
+
+    label {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .signup {
+        padding: 10px;
+    }
+
+    input, button {
+        width: 90%;
+    }
+
+    label {
+        font-size: 1.8em;
+    }
+}

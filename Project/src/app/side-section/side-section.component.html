@@ -1,0 +1,41 @@
+<main>
+    <img class="background" src="https://static.my.ge/myauto/dealers/slider/8.jpg" alt="">
+    <section>
+        <h2>{{value}}</h2>
+        <div class="cards">
+            <!-- Favourites Section -->
+            <div *ngIf="cars.length != 0">
+              <div *ngFor="let car of cars" class="card">
+                <img *ngIf="car.imgUrl1" [src]="car.imgUrl1" alt="{{ car.model }}" class="card-img-top" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ car.manufacturer }} {{ car.model }}</h5>
+                  <p>Year: {{ car.year }}</p>
+                  <p>Color: {{ car.color }}</p>
+                  <p>Mileage: {{ car.mileage }} km</p>
+                  <p class="car-price">Price: ${{ car.price }}</p>
+                  <div class="box-column">
+                    <button routerLink="/Catalog/Car/{{car.id}}">View Details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Transactions Section -->
+            <div *ngIf="transactions.length != 0">
+              <h5>Transactions</h5>
+              <div *ngFor="let transaction of transactions" class="card">
+                <img *ngIf="transaction.boughtCar?.imgUrl1" [src]="transaction.boughtCar?.imgUrl1" alt="{{ transaction.boughtCar?.model }}" class="card-img-top" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ transaction.boughtCar?.manufacturer }} {{ transaction.boughtCar?.model }}</h5>
+                  <p>Year: {{ transaction.boughtCar?.year }}</p>
+                  <p>Color: {{ transaction.boughtCar?.color }}</p>
+                  <p>Mileage: {{ transaction.boughtCar?.mileage }} km</p>
+                  <p>Purchase Date: {{ transaction.purchaseDate | date }}</p>
+                  <p class="car-price">Price: ${{ transaction.boughtCar?.price }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+</main>
+

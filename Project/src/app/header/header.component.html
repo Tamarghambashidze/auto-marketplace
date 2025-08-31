@@ -1,0 +1,43 @@
+<header class="header">
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="../../assets/images/logo.png" width="128" height="63" alt="autofix home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"  class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a routerLink="/Catalog" routerLinkActive="active" class="navbar-link">Catalog</a>
+          </li>
+
+          <li>
+            <a routerLink="/Buy-car" routerLinkActive="active"  class="navbar-link">Buy car</a>
+          </li>
+        </ul>
+      </nav>
+
+<a *ngIf="IsLoggedIn()" routerLink="/registration" routerLinkActive="active" class="btn btn-primary">
+  <span class="span">Sign in</span>
+  <span class="material-symbols-rounded">arrow_forward</span>
+</a>
+<a *ngIf="!IsLoggedIn()" [routerLink]="['/Profile', user.id]" routerLinkActive="active" class="btn btn-primary">
+  <span class="span">Profile</span>
+  <span class="material-symbols-rounded">arrow_forward</span>
+</a>
+
+
+
+      <button class="nav-toggle-btn" aria-label="toggle menu" (click)="navToggler()">
+        <span class="nav-toggle-icon icon-1"></span>
+        <span class="nav-toggle-icon icon-2"></span>
+        <span class="nav-toggle-icon icon-3"></span>
+      </button>
+
+    </div>
+  </header>

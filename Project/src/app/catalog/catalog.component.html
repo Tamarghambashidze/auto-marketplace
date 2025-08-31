@@ -1,0 +1,44 @@
+<main>
+  <section>
+    <img src="https://static.my.ge/myauto/dealers/slider/2.jpg" alt="" />
+    <div>
+      <h2>Search car</h2>
+      <form class="sorting-cars">
+        <select [(ngModel)]="selectedManufacturer" routerLink="/Catalog/{{selectedManufacturer}}" name="manufacturers" id="manufacturers" (change)="resetSelection($event, 'manufacturer')" class="custom-select">
+          <option value="" disabled selected hidden>Manufacturer</option>
+          <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer">{{ manufacturer }}</option>
+        </select>
+        <br /><br />
+        <select [(ngModel)]="selectedTransmission" routerLink="/Catalog/{{selectedTransmission}}" name="transmissions" id="transmissions" (change)="resetSelection($event, 'transmission')" class="custom-select">
+          <option value="" disabled selected hidden>Transmissions</option>
+          <option *ngFor="let transmission of transmissions" [value]="transmission">{{ transmission }}</option>
+        </select>
+        <br /><br />
+        <select [(ngModel)]="selectedDrivetrain" routerLink="/Catalog/{{selectedDrivetrain}}" name="drive-trains" id="drive-trains" (change)="resetSelection($event, 'drivetrain')" class="custom-select">
+          <option value="" disabled selected hidden>Drive trains</option>
+          <option *ngFor="let drivetrain of drivetrains" [value]="drivetrain">{{ drivetrain }}</option>
+        </select>
+        <br /><br />
+        <select [(ngModel)]="selectedFuelType" routerLink="/Catalog/{{selectedFuelType}}" name="fuel-types" id="fuel-types" (change)="resetSelection($event, 'fuelType')" class="custom-select">
+          <option value="" disabled selected hidden>Fuel types</option>
+          <option *ngFor="let fueltype of fueltypes" [value]="fueltype">{{ fueltype }}</option>
+        </select>
+      </form>
+      <form (ngSubmit)="searchCar()">
+        <input
+          type="text"
+          placeholder="Search by car name or details"
+          [(ngModel)]="searchQuery"
+          aria-label="Search"
+          name="search-input"
+          class="search-input"
+        />
+      </form>
+      <button type="button" (click)="sortCarsByPrice('ascending')">Sort by Price Ascending</button>
+      <button type="button" (click)="sortCarsByPrice('descending')">Sort by Price Descending</button>
+      <button routerLink="/Catalog" style="background-color: #0e162a;" type="button" (click)="resetAllFilters()">Reset All Filters</button>
+    </div>
+  </section>
+</main>
+<app-cards-area *ngIf="!isFiltersActive"></app-cards-area>
+<app-sort-cars *ngIf="isFiltersActive" [cars]="filteredCars"></app-sort-cars>

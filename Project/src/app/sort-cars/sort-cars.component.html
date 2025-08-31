@@ -1,0 +1,14 @@
+<section>
+  <div *ngFor="let car of cars" class="car-card">
+    <div class="car-image-container">
+      <img *ngIf="car.imgUrl1" [src]="car.imgUrl1" alt="{{ car.model }}" class="car-image front" />
+      <img *ngIf="car.imgUrl2" [src]="car.imgUrl2" alt="{{ car.model }}" class="car-image back" />
+    </div>
+    <h3>{{ car.manufacturer }} {{ car.model }}</h3>
+    <p>Year: {{ car.year }}</p>
+    <p>Color: {{ car.color }}</p>
+    <p>Mileage: {{ car.mileage }} km</p>
+    <p class="car-price">Price: ${{ car.price }}</p>
+    <button routerLink="/Catalog/Car/{{car.id}}">View Details</button>
+  </div>
+</section>

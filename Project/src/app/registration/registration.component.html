@@ -1,0 +1,21 @@
+<div class="signup">
+    <label for="chk" aria-hidden="true">Sign up</label>
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+        <input type="text" name="profileImgUrl" [(ngModel)]="user.profileImgUrl" placeholder="Profile Image URL">
+        <input type="text" name="firstName" [(ngModel)]="user.firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" [(ngModel)]="user.lastName" placeholder="Last Name" required>
+        <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
+        <input type="text" name="address" [(ngModel)]="details.address" placeholder="Address">
+        <input type="text" name="phoneNumber" [(ngModel)]="details.phoneNumber" placeholder="Phone Number">
+        <input type="date" name="dateOfBirth" [(ngModel)]="details.dateOfBirth" placeholder="Date of Birth">
+        <select name="gender" [(ngModel)]="details.gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <input type="password" name="passwordHash" [(ngModel)]="user.passwordHash" placeholder="Password" required>
+        <button type="submit" [disabled]="!registerForm.valid">Sign Up</button>
+    </form> 
+    <div class="login-link">
+      Already have an account? <a routerLink="/log-in">Log in</a>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CardsAreaComponent } from './cards-area.component';
+
+describe('CardsAreaComponent', () => {
+  let component: CardsAreaComponent;
+  let fixture: ComponentFixture<CardsAreaComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CardsAreaComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(CardsAreaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -1,0 +1,19 @@
+# ASP.NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+appsettings.Development.json
+
+# Angular
+node_modules/
+dist/
+.angular/
+.env
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+*.log

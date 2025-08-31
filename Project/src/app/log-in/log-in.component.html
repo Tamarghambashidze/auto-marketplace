@@ -1,0 +1,16 @@
+
+<body>
+	<div class="main">  	
+        <div class="login">
+            <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="email" [(ngModel)]="loginData.email" placeholder="Email" required>
+                <input type="password" name="pswd" [(ngModel)]="loginData.passwordHash" placeholder="Password" required>
+                <button type="submit" [disabled]="!loginForm.valid">Login</button>
+            </form>
+            <div class="signup-link">
+                Don't have an account? <a routerLink="/registration">Sign up</a>
+            </div>
+        </div>
+	</div>
+</body>

@@ -1,0 +1,28 @@
+
+<section>
+    <img class="background" src="https://static.my.ge/myauto/dealers/slider/3.jpg" alt="">
+    <div class="profile-container">
+        <div class="profile-header">
+          <img *ngIf="user.profileImgUrl" [src]="user.profileImgUrl" alt="Profile Picture" class="profile-img" />
+          <div class="profile-info">
+            <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+            <p>{{ user.email }}</p>
+          </div>
+        </div>
+      
+        <div class="user-details">
+          <h3>Details</h3>
+          <p><strong>Address:</strong> {{ user.userDetails?.address }}</p>
+          <p><strong>Phone Number:</strong> {{ user.userDetails?.phoneNumber }}</p>
+          <p><strong>Date of Birth:</strong> {{ user.userDetails?.dateOfBirth | date }}</p>
+          <p><strong>Gender:</strong> {{ user.userDetails?.gender }}</p>
+        </div>
+      
+        <div class="profile-actions">
+          <button routerLink="/user/{{user.id}}/Favourites" class="action-btn" >See Favourites</button>
+          <button routerLink="/user/{{user.id}}/Transactions" class="action-btn">See Transactions</button>
+          <button (click)="logOut()" class="action-btn">Log Out</button>
+        </div>
+      </div>
+      <router-outlet/>
+</section>
